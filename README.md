@@ -4,6 +4,26 @@
 PowerShell module for interacting with InfoBlox IPAM via the REST API.
 
 ## Examples
+
+### Add-IBResourceRecord
+Add a A-Record, CName or Host record on the Infoblox Gridserver
+
+`Add-IBResourceRecord -Type CName -HostName server.domain.com -GridServer infobloxserver.domain.com -Credential $Credential`
+
+`Add-IBResourceRecord -Type A -IPv4Address '192.168.9.99' -HostName 'server.domain.com' -GridServer infobloxserver.domain.com -Credential $Credential`
+
+`Add-IBResourceRecord -Type Host -IPv4Address '192.168.9.99' -HostName 'server.domain.com' -GridServer infobloxserver.domain.com -Credential $Credential`
+
+### Add-IBZone
+Adds a new (empty) Zone on the Infoblox Gridserver
+
+`Add-IBZone -FQDN 'newzone.domain.com' -GridServer infobloxserver.domain.com -Credential $Credential`
+
+### Add-IBDelegationZone
+Adds a new Delegation Zone on the Infoblox Gridserver
+
+`Add-IBDelegationZone -FQDN 'newZone.domain.com' -NameServers 'dns1','dns2' -NameServerIPs '1.1.1.1','2.2.2.2' -GridServer infobloxserver.domain.com -Credential $Credential`
+
 ### Add-IBResourceRecordHost
 Add a host record on the Infoblox Gridserver
 
