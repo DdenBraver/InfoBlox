@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 #>
 
-$script:apiVersion = '1.4.1'
+$script:apiVersion = '1.7'
 
 # Not playing slop
 Set-StrictMode -Version 3
@@ -22,8 +22,9 @@ Set-StrictMode -Version 3
 # Dot source public/private
 $Public  = @( Get-ChildItem -Path $PSScriptRoot\Public\*.ps1 -Recurse -ErrorAction SilentlyContinue )
 $Private = @( Get-ChildItem -Path $PSScriptRoot\Private\*.ps1 -Recurse -ErrorAction SilentlyContinue )
-Foreach($import in @($Public + $Private)) {
-    . $import.fullname
+Foreach($import in @($Public + $Private)) 
+{
+  . $import.fullname
 }
 
 # Allow untrusted SSL
